@@ -15,6 +15,44 @@
   <button id="getSongsByArtist">Get Songs By Artist</button>
   <h2>Results:</h2>
   <pre id="results"></pre> 
+  <script>
+    // on click listener fo fetching all songs
+    const getAllSongsButton = document.getElementById('getAllSongs');
+    getAllSongsButton.addEventListener('click', () => {
+      fetch('http://localhost:3000/api/songs')
+        .then(response => response.json())
+        .then(data => displayResults(data))
+        .catch(error => console.error('Error fetching all songs:', error));
+    });
+
+    // On-Click listener to fetch songs using ID
+    const getSongByIdButton = document.getElementById('getSongById');
+    getSongByIdButton.addEventListener('click', () => {
+      const songId = prompt('Enter song ID:');
+      if (songId) {
+        fetch(`http://localhost:3000/api/songs/${songId}`)
+          .then(response => response.json())
+          .then(data => displayResults(data))
+          .catch(error => console.error('Error fetching song by ID:', error));
+      }
+    });
+
+    //On-Click listener to fetch songs using artist names
+    const getSongsByArtistButton = document.getElementById('getSongsByArtist');
+    getSongsByArtistButton.addEventListener('click', () => {
+      const artistName = prompt('Enter artist name:');
+      if (artistName) {
+        fetch(`http://localhost:3000/api/songs/artist/${artistName}`)
+          .then(response => response.json())
+          .then(data => displayResults(data))
+          .catch(error => console.error('Error fetching songs by artist:', error));
+      }
+    });
+
+
+
+
+  </script>
 
 </body>
 
