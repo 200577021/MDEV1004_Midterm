@@ -16,5 +16,9 @@
     "url": "https://github.com/200577021/MDEV1004_Midterm/issues"
   },
   "homepage": "https://github.com/200577021/MDEV1004_Midterm#readme",
-  "description": ""
+  "description": "",
+  "dependencies": {
+    "express": "^4.21.2",
+    "mongoose": "^8.10.1"
+  }
 }
