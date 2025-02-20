@@ -1,0 +1,20 @@
+{
+  "name": "mdev1004_midterm",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/200577021/MDEV1004_Midterm.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/200577021/MDEV1004_Midterm/issues"
+  },
+  "homepage": "https://github.com/200577021/MDEV1004_Midterm#readme",
+  "description": ""
+}
