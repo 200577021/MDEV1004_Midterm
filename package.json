@@ -18,6 +18,7 @@
   "homepage": "https://github.com/200577021/MDEV1004_Midterm#readme",
   "description": "",
   "dependencies": {
+    "body-parser": "^1.20.3",
     "express": "^4.21.2",
     "mongoose": "^8.10.1"
   }
