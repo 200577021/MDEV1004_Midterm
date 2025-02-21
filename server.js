@@ -26,7 +26,7 @@ app.get('/api/songs', (req, res) => {
     if (song) {
       res.json(song);
     } else {
-      res.status(404).send('Song not found');
+      res.status(404).send('404 No Songs Found ');
     }
   });
   
@@ -35,7 +35,7 @@ app.get('/api/songs', (req, res) => {
     if (artistSongs.length > 0) {
       res.json(artistSongs);
     } else {
-      res.status(404).send('No songs found for this artist');
+      res.status(404).send('404 No songs found artist');
     }
   });
 
@@ -43,7 +43,7 @@ app.get('/api/songs', (req, res) => {
 const MONGO_URI = "mongodb+srv://Aquilav:200577021@lab3.sctjr.mongodb.net/";
 mongoose.connect(MONGO_URI, { useNewUrlParser: true, useUnifiedTopology: true })
     .then(() => console.log("Connected to MongoDB"))
-    .catch(err => console.error("MongoDB connection error:", err));
+    .catch(err => console.error("404 MongoDB connection error:", err));
 
 // Start the server
 const port = 3001;
