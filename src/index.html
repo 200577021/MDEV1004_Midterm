@@ -19,7 +19,7 @@
     // on click listener fo fetching all songs
     const getAllSongsButton = document.getElementById('getAllSongs');
     getAllSongsButton.addEventListener('click', () => {
-      fetch('http://localhost:3000/api/songs')
+      fetch('http://localhost:3001/api/songs')
         .then(response => response.json())
         .then(data => displayResults(data))
         .catch(error => console.error('Error fetching all songs:', error));
@@ -30,7 +30,7 @@
     getSongByIdButton.addEventListener('click', () => {
       const songId = prompt('Enter song ID:');
       if (songId) {
-        fetch(`http://localhost:3000/api/songs/${songId}`)
+        fetch(`http://localhost:3001/api/songs/${songId}`)
           .then(response => response.json())
           .then(data => displayResults(data))
           .catch(error => console.error('Error fetching song by ID:', error));
@@ -42,19 +42,20 @@
     getSongsByArtistButton.addEventListener('click', () => {
       const artistName = prompt('Enter artist name:');
       if (artistName) {
-        fetch(`http://localhost:3000/api/songs/artist/${artistName}`)
+        fetch(`http://localhost:3001/api/songs/artist/${artistName}`)
           .then(response => response.json())
           .then(data => displayResults(data))
           .catch(error => console.error('Error fetching songs by artist:', error));
       }
     });
-
-
-
+    const displayResults = (data) => {
+      resultsDiv.textContent = JSON.stringify(data, null, 2);
+    };
 
   </script>
 
 </body>
+
 
 </html>
 
