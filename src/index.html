@@ -7,7 +7,7 @@
   <title>Songs API</title>
 </head>
 
-<body>
+<body bgcolor="grey" text="white" align="center">
   <h1>Songs API</h1>
   <p>Use the buttons below to fetch data from the songs API:</p>
   <button id="getAllSongs">Get All Songs</button>
@@ -48,6 +48,7 @@
           .catch(error => console.error('Error fetching songs by artist:', error));
       }
     });
+    const resultsDiv = document.getElementById('results');
     const displayResults = (data) => {
       resultsDiv.textContent = JSON.stringify(data, null, 2);
     };
@@ -55,7 +56,5 @@
   </script>
 
 </body>
-
-
 </html>
 

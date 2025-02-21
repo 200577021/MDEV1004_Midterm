@@ -1,18 +1,22 @@
-// importing required modules
+// Importing required modules
 const bodyParser = require('body-parser');
 const express = require('express');
 const mongoose = require('mongoose');
-const fs = require('fs')
-const path = require('path')
+const fs = require('fs');
+const path = require('path');
+
 const app = express();
 
-//middleware
+// Middleware
 app.use(bodyParser.json());
 
-//songsData have data's from json file
+// Load songs data from JSON file
 const songsData = JSON.parse(fs.readFileSync(path.join(__dirname, 'songs.json')));
 
-// defining API routes
+app.use(express.static(path.join(__dirname, 'src')));
+
+
+// Define API routes
 app.get('/api/songs', (req, res) => {
     res.json(songsData);
   });
@@ -34,10 +38,15 @@ app.get('/api/songs', (req, res) => {
       res.status(404).send('No songs found for this artist');
     }
   });
-  
 
-//defining and starting server code
+// Connect to MongoDB
+const MONGO_URI = "mongodb+srv://Aquilav:200577021@lab3.sctjr.mongodb.net/";
+mongoose.connect(MONGO_URI, { useNewUrlParser: true, useUnifiedTopology: true })
+    .then(() => console.log("Connected to MongoDB"))
+    .catch(err => console.error("MongoDB connection error:", err));
+
+// Start the server
 const port = 3001;
 app.listen(port, () => {
     console.log(`Server is running on http://localhost:${port}`);
-  });
+});
